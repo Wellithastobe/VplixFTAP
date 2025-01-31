@@ -15,17 +15,6 @@ G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:Wait
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
-local player = game.Players.LocalPlayer
-local gui = player.PlayerGui:FindFirstChild("ScreenGui")
-
-if gui then
-    for _, obj in pairs(gui:GetDescendants()) do
-        if obj:IsA("GuiObject") then
-            obj.ZIndex = 10  -- Adjust ZIndex only for valid GUI elements
-        end
-    end
-end
-
 
 -- StarterGui.ScreenGui.MainFrame
 G2L["2"] = Instance.new("Frame", G2L["1"]);
