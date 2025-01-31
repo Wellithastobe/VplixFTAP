@@ -15,15 +15,17 @@ G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:Wait
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
--- Increase ZIndex for all instances
-local function setMaxZIndex(instance)
-    instance.ZIndex = 10
-    for _, child in pairs(instance:GetChildren()) do
-        setMaxZIndex(child)
+local player = game.Players.LocalPlayer
+local gui = player.PlayerGui:FindFirstChild("ScreenGui")
+
+if gui then
+    for _, obj in pairs(gui:GetDescendants()) do
+        if obj:IsA("GuiObject") then
+            obj.ZIndex = 10  -- Adjust ZIndex only for valid GUI elements
+        end
     end
 end
 
-setMaxZIndex(G2L["1"])
 
 -- StarterGui.ScreenGui.MainFrame
 G2L["2"] = Instance.new("Frame", G2L["1"]);
