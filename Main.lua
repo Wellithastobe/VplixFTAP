@@ -15,6 +15,16 @@ G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:Wait
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
+-- Increase ZIndex for all instances
+local function setMaxZIndex(instance)
+    instance.ZIndex = 10
+    for _, child in pairs(instance:GetChildren()) do
+        setMaxZIndex(child)
+    end
+end
+
+setMaxZIndex(G2L["1"])
+
 -- StarterGui.ScreenGui.MainFrame
 G2L["2"] = Instance.new("Frame", G2L["1"]);
 G2L["2"]["BorderSizePixel"] = 0;
